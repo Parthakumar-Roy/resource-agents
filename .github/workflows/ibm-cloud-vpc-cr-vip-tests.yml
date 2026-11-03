@@ -1,0 +1,14 @@
+name: ibm-cloud-vpc-cr-vip tests
+on:
+  push:
+    branches: [vip_tests]
+  pull_request:
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.x"
+      - run: python3 heartbeat/tests/test_ibm_cloud_vpc_cr_vip.py
